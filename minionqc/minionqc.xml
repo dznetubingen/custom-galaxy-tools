@@ -1,0 +1,39 @@
+<tool id="minionqc" name="MinionQC for Nanopore" version="0.1.0">
+    <requirements>
+        <requirement type="package" version="3.4.1">r-base</requirement>
+	<requirement type="package" version="1.10.4">r-data.table</requirement>
+	<requirement type="package" version="2.2.1">r-ggplot2</requirement>
+	<requirement type="package" version="1.4.3">r-futile.logger</requirement>
+	<requirement type="package" version="1.4.4">r-optparse</requirement>
+	<requirement type="package" version="1.8.4">r-plyr</requirement>
+	<requirement type="package" version="1.1.1">r-readr</requirement>
+	<requirement type="package" version="1.4.2">r-reshape2</requirement>
+	<requirement type="package" version="0.4.1">r-scales</requirement>
+	<requirement type="package" version="0.4.0">r-viridis</requirement>
+	<requirement type="package" version="2.1.14">r-yaml</requirement>
+	<requirement type="package" version="1.8_17">r-mgcv</requirement>
+    </requirements>
+    <command detect_errors="exit_code">
+	Rscript '$__tool_directory__/MinionQC.R' -i '$input1' --cs $output1 --fco $output2 --lbh $output3 --lh $output4 --lvq $output5 --qbh $output6 --qh $output7 --rph $output8 --sum $output9 --ybl $output10 --yot $output11
+    </command>
+    <inputs>
+        <param type="data" name="input1" format="txt" />
+    </inputs>
+    <outputs>
+	<data format="png" name="output1" label="channel_summary.png"/>
+	<data format="png" name="output2" label="flowcell_overview.png"/>
+	<data format="png" name="output3" label="length_by_hour.png"/>
+	<data format="png" name="output4" label="length_histogram.png"/> 
+	<data format="png" name="output5" label="length_vs_q.png"/>
+	<data format="png" name="output6" label="q_by_hour.png"/>
+	<data format="png" name="output7" label="q_histogram.png"/>
+	<data format="png" name="output8" label="reads_per_hour.png"/>
+	<data format="txt" name="output9" label="summary.txt"/>
+	<data format="png" name="output10" label="yield_by_length.png"/>
+	<data format="png" name="output11" label="yield_over_time.png"/>
+   </outputs>
+     <help>
+        **Nanopore Run QC**
+	Simply give it the sequence_summary.txt file from the basecalling as input.    
+    </help>
+</tool>
